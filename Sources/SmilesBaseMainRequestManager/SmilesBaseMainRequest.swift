@@ -24,7 +24,7 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
     public var token : String?
     public var hashId : String?
     public var deviceHashId : String?
-    public var userInfo : AppUserInfo?
+    public var userInfo : BaseRequestAppUserInfo?
     public var deviceHashIdV2 : String?
     
     enum CodingKeys: String, CodingKey {
@@ -90,7 +90,7 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         
     }
     
-    init(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool?, isNotificationEnabled: Bool?, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: AppUserInfo?, deviceHashIdV2: String?) {
+    init(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool?, isNotificationEnabled: Bool?, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: BaseRequestAppUserInfo?, deviceHashIdV2: String?) {
         
         self.additionalInfo = additionalInfo
         self.appVersion = appVersion
