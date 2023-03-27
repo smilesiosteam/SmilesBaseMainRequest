@@ -30,6 +30,8 @@ extension BaseMainRequestable {
         baseRequest.token = configs.token
         baseRequest.hashId = configs.hashId
         baseRequest.deviceHashId = configs.deviceHashId
+        baseRequest.userInfo = configs.userInfo
+        baseRequest.deviceHashIdV2 = configs.deviceHashIdV2
     }
 }
 
