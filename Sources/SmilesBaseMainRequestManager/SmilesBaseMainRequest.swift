@@ -87,6 +87,8 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         token = try values.decodeIfPresent(String.self, forKey: .token)
         hashId = try values.decodeIfPresent(String.self, forKey: .hashId)
         deviceHashId = try values.decodeIfPresent(String.self, forKey: .deviceHashId)
+        userInfo = try values.decode(BaseRequestAppUserInfo.self, forKey: .userInfo)
+        deviceHashIdV2 = try values.decodeIfPresent(String.self, forKey: .deviceHashIdV2)
         
     }
     
@@ -107,6 +109,8 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         self.token = token
         self.hashId = hashId
         self.deviceHashId = deviceHashId
+        self.userInfo = userInfo
+        self.deviceHashIdV2 = deviceHashIdV2
         
     }
     
