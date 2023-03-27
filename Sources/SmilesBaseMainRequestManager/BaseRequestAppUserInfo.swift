@@ -32,7 +32,7 @@ import Foundation
         case cityName
     }
     
-    override init() {}
+    public override init() {}
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
