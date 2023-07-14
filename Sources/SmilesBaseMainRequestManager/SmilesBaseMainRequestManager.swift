@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SmilesUtilities
 
 @objc public class SmilesBaseMainRequestManager: NSObject {
     
     public static let shared = SmilesBaseMainRequestManager()
     public var baseMainRequestConfigs: SmilesBaseMainRequest?
     
-    @objc public func setupBaseRequestConfigs(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool = false, isNotificationEnabled: Bool = false, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: BaseRequestAppUserInfo?, deviceHashIdV2: String?) {
+    @objc public func setupBaseRequestConfigs(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool = false, isNotificationEnabled: Bool = false, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: AppUserInfo?, deviceHashIdV2: String?) {
         
         baseMainRequestConfigs = SmilesBaseMainRequest(additionalInfo: additionalInfo, appVersion: appVersion, authToken: authToken, channel: channel, deviceId: deviceId, handsetModel: handsetModel, imsi: imsi, isGpsEnabled: isGpsEnabled, isNotificationEnabled: isNotificationEnabled, langauge: langauge, msisdn: msisdn, osVersion: osVersion, token: token, hashId: hashId, deviceHashId: deviceHashId, userInfo: userInfo, deviceHashIdV2: deviceHashIdV2)
         
