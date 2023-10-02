@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SmilesUtilities
+import SmilesSharedModels
 
 @objc public class SmilesBaseMainRequestManager: NSObject {
     
