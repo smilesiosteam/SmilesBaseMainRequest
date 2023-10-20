@@ -8,7 +8,7 @@
 import Foundation
 import CommonCrypto
 
-@objc class AESEncryption: NSObject {
+@objc public class AESEncryption: NSObject {
 
     // MARK: - Value
     // MARK: Private
@@ -17,7 +17,7 @@ import CommonCrypto
 
 
     // MARK: - Initialzier
-    @objc init?(key: String, iv: String) {
+    @objc public init?(key: String, iv: String) {
         guard key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES256, let keyData = key.data(using: .utf8) else {
             debugPrint("Error: Failed to set a key.")
             return nil
@@ -36,16 +36,16 @@ import CommonCrypto
 
     // MARK: - Function
     // MARK: Public
-    @objc func encrypt(string: String) -> Data? {
+    @objc public func encrypt(string: String) -> Data? {
         return crypt(data: string.data(using: .utf8), option: CCOperation(kCCEncrypt))
     }
 
-    @objc func decrypt(data: Data?) -> String? {
+    @objc public func decrypt(data: Data?) -> String? {
         guard let decryptedData = crypt(data: data, option: CCOperation(kCCDecrypt)) else { return nil }
         return String(bytes: decryptedData, encoding: .utf8)
     }
 
-    @objc func crypt(data: Data?, option: CCOperation) -> Data? {
+    @objc public func crypt(data: Data?, option: CCOperation) -> Data? {
         guard let data = data else { return nil }
 
         let cryptLength = data.count + kCCBlockSizeAES128
@@ -76,7 +76,7 @@ import CommonCrypto
     }
     
     
-    @objc func encryptDataWithNewHash(stringToHash:String) -> String? {
+    @objc public func encryptDataWithNewHash(stringToHash:String) -> String? {
         let initVector = "NSHG5tytimVCPPzx"
         
         guard let secretKeyData = Data(base64Encoded: "/cD69bFaHIFE7V+n6rQtaM2YILyK2c1iYNIJqjSD/BY=") else {
