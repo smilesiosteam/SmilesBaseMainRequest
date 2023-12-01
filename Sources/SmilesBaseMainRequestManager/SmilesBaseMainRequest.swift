@@ -66,8 +66,8 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         try container.encodeIfPresent(self.token, forKey: .token)
         try container.encodeIfPresent(self.hashId, forKey: .hashId)
         try container.encodeIfPresent(self.deviceHashId, forKey: .deviceHashId)
-        try container.encodeIfPresent(self.deviceHashIdV2, forKey: .deviceHashIdV2)
         try container.encodeIfPresent(self.userInfo, forKey: .userInfo)
+        try container.encodeIfPresent(self.deviceHashIdV2, forKey: .deviceHashIdV2)
     }
     
     required public init(from decoder: Decoder) throws {
