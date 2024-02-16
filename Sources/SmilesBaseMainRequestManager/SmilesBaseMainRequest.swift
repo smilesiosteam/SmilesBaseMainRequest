@@ -27,7 +27,6 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
     public var deviceHashId : String?
     public var userInfo : AppUserInfo?
     public var deviceHashIdV2 : String?
-    public var isHomeScreen : Bool?
     
     enum CodingKeys: String, CodingKey {
         case additionalInfo
@@ -47,7 +46,6 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         case deviceHashId
         case userInfo
         case deviceHashIdV2
-        case isHomeScreen
     }
     
     open func encode(to encoder: Encoder) throws {
@@ -70,7 +68,6 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         try container.encodeIfPresent(self.deviceHashId, forKey: .deviceHashId)
         try container.encodeIfPresent(self.userInfo, forKey: .userInfo)
         try container.encodeIfPresent(self.deviceHashIdV2, forKey: .deviceHashIdV2)
-        try container.encodeIfPresent(self.isHomeScreen, forKey: .isHomeScreen)
     }
     
     required public init(from decoder: Decoder) throws {
@@ -93,11 +90,10 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         deviceHashId = try values.decodeIfPresent(String.self, forKey: .deviceHashId)
         userInfo = try values.decode(AppUserInfo.self, forKey: .userInfo)
         deviceHashIdV2 = try values.decodeIfPresent(String.self, forKey: .deviceHashIdV2)
-        isHomeScreen = try values.decodeIfPresent(Bool.self, forKey: .isHomeScreen)
         
     }
     
-    init(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool?, isNotificationEnabled: Bool?, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: AppUserInfo?, deviceHashIdV2: String?, isHomeScreen: Bool? = nil) {
+    init(additionalInfo: [BaseMainResponseAdditionalInfo], appVersion: String?, authToken: String?, channel: String?, deviceId: String?, handsetModel: String?, imsi: String?, isGpsEnabled: Bool?, isNotificationEnabled: Bool?, langauge: String?, msisdn: String?, osVersion: String?, token: String?, hashId: String?, deviceHashId: String?, userInfo: AppUserInfo?, deviceHashIdV2: String?) {
         
         self.additionalInfo = additionalInfo
         self.appVersion = appVersion
@@ -116,7 +112,6 @@ open class SmilesBaseMainRequest : BaseMainRequestable, Codable {
         self.deviceHashId = deviceHashId
         self.userInfo = userInfo
         self.deviceHashIdV2 = deviceHashIdV2
-        self.isHomeScreen = isHomeScreen
         
     }
     
